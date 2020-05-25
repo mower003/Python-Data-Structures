@@ -1,3 +1,4 @@
+from collections import deque
 #Linked List class definition
 #creates head node
 #Uses __repr__ as toString()
@@ -5,7 +6,7 @@ class LinkedList:
     def __init__(self, nodes=None):
         self.head = None
         if nodes is not None:
-            node = Node(data = nodes.pop(0))
+            node = Node(data = nodes.pop())
             self.head = node
             for n in nodes:
                 node.next = Node(data = n)
@@ -105,6 +106,23 @@ class LinkedList:
 
         raise Exception("Index out of bounds!")
 
+    def reverse(self):
+        if self.head == None:
+            raise Exception("Empty List")
+
+        previous_node = None
+        current_node = self.head
+        
+        while current_node is not None:
+            next_node = current_node.next
+            current_node.next = previous_node
+            previous_node = current_node
+            current_node = next_node
+        self.head = previous_node
+        
+
+
+
 
 
         
@@ -140,6 +158,7 @@ third_node = Node("Carl")
 first_node.next = second_node
 second_node.next = third_node
 
+
 print(llist)
 for node in lllist:
     print(node)
@@ -161,4 +180,12 @@ llist3.add_before("Costco", Node("Amazon"))
 print(llist3)
 llist3.remove_node("Amazon")
 print(llist3)
+llist3.add_first(Node("Qualcomm"))
+print(llist3)
 print(llist3.get(2))
+print("Reverse Start: ")
+llist3.reverse()
+print(llist3)
+
+lllist.reverse()
+print(lllist)
