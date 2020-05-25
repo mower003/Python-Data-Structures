@@ -119,13 +119,6 @@ class LinkedList:
             previous_node = current_node
             current_node = next_node
         self.head = previous_node
-        
-
-
-
-
-
-        
 
 #Node class definition
 #Stores next node and data from instantiation
