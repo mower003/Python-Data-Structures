@@ -1,4 +1,14 @@
-from collections import deque
+#Node class definition
+#Stores next node and data from instantiation
+#Uses __repr__ as toString()
+class Node:
+    def __init__(self,data):
+        self.data = data
+        self.next = None
+
+    def __repr__(self):
+        return self.data
+
 #Linked List class definition
 #creates head node
 #Uses __repr__ as toString()
@@ -120,16 +130,6 @@ class LinkedList:
             current_node = next_node
         self.head = previous_node
 
-#Node class definition
-#Stores next node and data from instantiation
-#Uses __repr__ as toString()
-class Node:
-    def __init__(self,data):
-        self.data = data
-        self.next = None
-
-    def __repr__(self):
-        return self.data
 
 #Create linked list 'llist'
 #head node is created and set to None
